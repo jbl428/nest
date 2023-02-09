@@ -111,9 +111,9 @@ export class NestFactoryStatic {
    * @returns A promise that, when resolved,
    * contains a reference to the NestMicroservice instance.
    */
-  public async createMicroservice<T extends object>(
+  public async createMicroservice(
     moduleCls: any,
-    options?: NestMicroserviceOptions & T,
+    options?: NestMicroserviceOptions,
   ): Promise<INestMicroservice> {
     const { NestMicroservice } = loadPackage(
       '@nestjs/microservices',

@@ -2,11 +2,20 @@ import { INestApplication } from '@nestjs/common';
 import { NestFactory } from '@nestjs/core';
 import * as request from 'supertest';
 import { AsyncExistingApplicationModule } from '../src/async-options-existing.module';
+import { Transport } from '@nestjs/common/interfaces/microservices/enums';
 
 describe('GraphQL (async existing)', () => {
   let app: INestApplication;
 
   beforeEach(async () => {
+    NestFactory.createMicroservice(
+      {},
+      {
+        transport: Transport.REDIS,
+        options: {},
+      },
+    );
+
     app = await NestFactory.create(AsyncExistingApplicationModule, {
       logger: false,
     });

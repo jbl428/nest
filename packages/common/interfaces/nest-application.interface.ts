@@ -15,6 +15,7 @@ import {
 import { INestApplicationContext } from './nest-application-context.interface';
 import { VersioningOptions } from './version-options.interface';
 import { WebSocketAdapter } from './websockets/web-socket-adapter.interface';
+import { NestMicroserviceOptions } from './microservices/nest-microservice-options.interface';
 
 /**
  * Interface defining the core NestApplication object.
@@ -95,8 +96,8 @@ export interface INestApplication extends INestApplicationContext {
    * @param {NestHybridApplicationOptions} hybridOptions Hybrid options object
    * @returns {INestMicroservice}
    */
-  connectMicroservice<T extends object = any>(
-    options: T,
+  connectMicroservice(
+    options: NestMicroserviceOptions,
     hybridOptions?: NestHybridApplicationOptions,
   ): INestMicroservice;
 

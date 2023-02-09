@@ -20,7 +20,8 @@ describe('REDIS transport', () => {
     app.connectMicroservice({
       transport: Transport.REDIS,
       options: {
-        url: 'redis://0.0.0.0:6379',
+        host: '0.0.0.0',
+        port: 6379,
       },
     });
     await app.startAllMicroservices();
